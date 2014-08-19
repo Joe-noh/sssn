@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :recordings
+  has_many :categories
+
   acts_as_authentic do |config|
     config.login_field = :name
   end
