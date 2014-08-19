@@ -2,7 +2,7 @@ class Recording < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
-  enum :io, [:outlay, :income]
+  enum io: [:outlay, :income]
 
   validates_presence_of :user
   validates_presence_of :category

@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   belongs_to :user
   has_many :sub_categories
 
-  enum :io, [:outlay, :income]
+  enum io: [:outlay, :income]
 
   validates_presence_of :user
   validates_presence_of :name

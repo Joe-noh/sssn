@@ -1,9 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :sub_category do
-    name "MyString"
+    name        "外食"
     category_id 1
-    description "MyString"
+    description "お店で食べちゃった"
   end
 end
