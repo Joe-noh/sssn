@@ -1,8 +1,11 @@
+RSpec.configure do |c|
+  include AuthHelper
+end
+
 describe "authentication" do
   before :each do
     activate_authlogic
     @user = FactoryGirl.create(:user)
-    UserSession.create(@user)
   end
 
   describe "login" do
@@ -57,6 +60,35 @@ describe "authentication" do
       click_button "Sign up"
 
       expect(page).to have_content "Sign up"
+    end
+  end
+
+  describe "restricted area" do
+    context "logged in" do
+      before :each do
+        login_with @user
+      end
+
+      it "redirects to book_path from root_path" do
+        visit root_path
+        expect(page).to have_content "Book"
+      end
+
+      it "redirects to book_path from signup_path" do
+        visit signup_path
+        expect(page).to have_content "Book"
+      end
+    end
+
+    context "logged out" do
+      before :each do
+        logout
+      end
+
+      it "redirect to root_path from book_path" do
+        visit book_path
+        expect(page).to have_content "Log in"
+      end
     end
   end
 end

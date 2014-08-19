@@ -19,10 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless current_user
-      redirect_to login_url
-      return false
-    end
+    redirect_to root_path unless current_user
+  end
+
+  def require_logout
+    redirect_to book_path if current_user
   end
 
   def logged_in?
