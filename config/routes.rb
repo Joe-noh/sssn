@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root "user_sessions#new"
+
+  resource :users, only: [:create]
+  get "signup" => "users#new"
+
+  resource :user_sessions, only: [:create]
+  delete "logout" => "user_sessions#destroy"
+
+  get "book" => "book#index", as: :book
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

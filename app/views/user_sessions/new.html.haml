@@ -1,0 +1,19 @@
+%h1 welcome
+
+%div
+  %h2 Log in
+  %ul
+    - @session.errors.full_messages.each do |msg|
+      %li= msg
+
+  = form_for @session, url: user_sessions_path do |f|
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.label :password
+      = f.password_field :password
+
+    = f.submit "Log in"
+
+= link_to "Sign up", signup_path

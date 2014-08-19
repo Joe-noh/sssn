@@ -3,7 +3,8 @@ ruby '2.1.2'
 
 gem 'rails', '4.1.5'
 
-gem 'devise'
+gem 'authlogic'
+gem 'scrypt'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
