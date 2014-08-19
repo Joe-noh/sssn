@@ -1,0 +1,6 @@
+%div.header
+  - if logged_in?
+    = link_to "Log out", logout_path, method: :delete
+  - else
+    = link_to "Sign up", signup_path
+    = link_to "Log in", root_path
