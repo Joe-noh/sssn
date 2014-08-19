@@ -6,7 +6,7 @@ describe User do
       FactoryGirl.create(:user)
       user = FactoryGirl.build(:user)
 
-      expect(user.valid?).to be_falsy
+      expect(user).not_to be_valid
     end
 
     it "fail with invalid name" do
